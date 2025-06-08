@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "custom-players-mod",
+  "version": "${version}",
+  "name": "custom-players-mod",
+  "description": "",
+  "authors": [],
+  "contact": {},
+  "license": "All-Rights-Reserved",
+  "icon": "assets/custom-players-mod/icon.png",
+  "environment": "server",
+  "entrypoints": {
+    "fabric-datagen": [
+      "com.pey.backupmod.customPlayersMod.client.CustomPlayersModDataGenerator"
+    ],
+    "main": [
+      "com.pey.backupmod.customPlayersMod.CustomPlayersMod"
+    ]
+  },
+  "mixins": [
+    "custom-players-mod.mixins.json",
+    {
+      "config": "custom-players-mod.client.mixins.json",
+      "environment": "client"
+    }
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
