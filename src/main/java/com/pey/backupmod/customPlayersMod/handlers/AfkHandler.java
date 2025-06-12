@@ -26,9 +26,10 @@ public class AfkHandler {
                     assert sourceplayer != null;
                     server.getCommandManager().executeWithPrefix(server.getCommandSource(),
                             "player afk" + name + " spawn at " +
-                            sourceplayer.getPos().getX() + " " +
-                            sourceplayer.getPos().getY() + " " +
-                            sourceplayer.getPos().getZ()
+                                    sourceplayer.getPos().getX() + " " +
+                                    sourceplayer.getPos().getY() + " " +
+                                    sourceplayer.getPos().getZ() + " facing 0 0 in " +
+                                    sourceplayer.getWorld().getRegistryKey().getValue().toString()
                     );
                 }
         );
