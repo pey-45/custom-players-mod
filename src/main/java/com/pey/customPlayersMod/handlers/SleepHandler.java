@@ -1,4 +1,4 @@
-package com.pey.backupmod.customPlayersMod.handlers;
+package com.pey.customPlayersMod.handlers;
 
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.command.ServerCommandSource;
@@ -29,8 +29,11 @@ public class SleepHandler {
         server.execute(() ->
                 server.getCommandManager().executeWithPrefix(server.getCommandSource(), "player Sleep spawn at 1500 300 -1500"));
 
-        source.sendFeedback(() ->
-                Text.literal("Sleep joined").styled(style -> style.withColor(Formatting.GREEN)), false);
+        server.getPlayerManager().broadcast(
+                Text.literal("Sleep joined")
+                        .styled(style -> style.withColor(Formatting.GREEN)),
+                false
+        );
 
         running = false;
     }
@@ -67,8 +70,11 @@ public class SleepHandler {
                 server.execute(() ->
                         server.getCommandManager().executeWithPrefix(server.getCommandSource(), "player Sleep use continuous")));
 
-        source.sendFeedback(() ->
-                Text.literal("Sleep started").styled(style -> style.withColor(Formatting.GREEN)), false);
+        server.getPlayerManager().broadcast(
+                Text.literal("Sleep started")
+                        .styled(style -> style.withColor(Formatting.GREEN)),
+                false
+        );
 
         running = true;
     }
@@ -94,8 +100,11 @@ public class SleepHandler {
             server.getCommandManager().executeWithPrefix(server.getCommandSource(), "player Sleep stop");
         });
 
-        source.sendFeedback(() ->
-                Text.literal("Sleep stopped").styled(style -> style.withColor(Formatting.GREEN)), false);
+        server.getPlayerManager().broadcast(
+                Text.literal("Sleep stopped")
+                        .styled(style -> style.withColor(Formatting.GREEN)),
+                false
+        );
 
         running = false;
     }
@@ -114,8 +123,11 @@ public class SleepHandler {
         server.execute(() ->
                 server.getCommandManager().executeWithPrefix(server.getCommandSource(), "player Sleep kill"));
 
-        source.sendFeedback(() ->
-                Text.literal("Sleep left").styled(style -> style.withColor(Formatting.GREEN)), false);
+        server.getPlayerManager().broadcast(
+                Text.literal("Sleep left")
+                        .styled(style -> style.withColor(Formatting.GREEN)),
+                false
+        );
 
         running = false;
     }

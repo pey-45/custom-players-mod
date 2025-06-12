@@ -11,10 +11,10 @@
   "environment": "server",
   "entrypoints": {
     "fabric-datagen": [
-      "com.pey.backupmod.customPlayersMod.client.CustomPlayersModDataGenerator"
+      "com.pey.customPlayersMod.client.CustomPlayersModDataGenerator"
     ],
     "main": [
-      "com.pey.backupmod.customPlayersMod.CustomPlayersMod"
+      "com.pey.customPlayersMod.CustomPlayersMod"
     ]
   },
   "mixins": [

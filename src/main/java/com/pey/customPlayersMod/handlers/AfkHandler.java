@@ -1,4 +1,4 @@
-package com.pey.backupmod.customPlayersMod.handlers;
+package com.pey.customPlayersMod.handlers;
 
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.command.ServerCommandSource;
@@ -34,8 +34,11 @@ public class AfkHandler {
                 }
         );
 
-        source.sendFeedback(() ->
-                Text.literal("afk" + name + " joined").styled(style -> style.withColor(Formatting.GREEN)), false);
+        server.getPlayerManager().broadcast(
+                Text.literal("afk" + name + " joined")
+                        .styled(style -> style.withColor(Formatting.GREEN)),
+                false
+        );
     }
 
     public static void leave(ServerCommandSource source, String name) {
@@ -52,7 +55,10 @@ public class AfkHandler {
         server.execute(() ->
                 server.getCommandManager().executeWithPrefix(server.getCommandSource(), "player afk" + name + " kill"));
 
-        source.sendFeedback(() ->
-                Text.literal("afk" + name + " left").styled(style -> style.withColor(Formatting.GREEN)), false);
+        server.getPlayerManager().broadcast(
+                Text.literal("afk" + name + " left")
+                        .styled(style -> style.withColor(Formatting.GREEN)),
+                false
+        );
     }
 }

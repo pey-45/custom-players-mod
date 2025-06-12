@@ -1,9 +1,9 @@
-package com.pey.backupmod.customPlayersMod;
+package com.pey.customPlayersMod;
 
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.StringArgumentType;
-import com.pey.backupmod.customPlayersMod.handlers.AfkHandler;
-import com.pey.backupmod.customPlayersMod.handlers.SleepHandler;
+import com.pey.customPlayersMod.handlers.AfkHandler;
+import com.pey.customPlayersMod.handlers.SleepHandler;
 import net.minecraft.server.command.CommandManager;
 import net.minecraft.server.command.ServerCommandSource;
 
