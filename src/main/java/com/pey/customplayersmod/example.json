@@ -1,0 +1,19 @@
+{
+    "sleep": {
+        "join": [
+            "spawn at 1500 300 -1500"
+        ],
+        "start": [
+            "look at 1501.61 300.56 -1499.19",
+            "sneak",
+            "use continuous"
+        ],
+        "stop": [
+            "stop"
+        ],
+        "leave": [
+            "kill"
+        ]
+    }
+}
+

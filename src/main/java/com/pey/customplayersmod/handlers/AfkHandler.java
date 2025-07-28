@@ -1,4 +1,4 @@
-package com.pey.customplayersmod.customPlayersMod.handlers;
+package com.pey.customplayersmod.handlers;
 
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.command.ServerCommandSource;
