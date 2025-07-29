@@ -14,7 +14,7 @@
       "com.pey.customPlayersMod.customPlayersMod.client.CustomPlayersModDataGenerator"
     ],
     "main": [
-      "com.pey.customPlayersMod.customPlayersMod.CustomPlayersMod"
+      "com.pey.customplayersmod.CustomPlayersMod"
     ]
   },
   "mixins": [

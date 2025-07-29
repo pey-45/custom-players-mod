@@ -10,47 +10,49 @@ import net.minecraft.text.Text;
 
 public class CustomPlayersCommands {
     public static void register(CommandDispatcher<ServerCommandSource> dispatcher) {
-        dispatcher.register(CommandManager.literal("customplayers")
+        dispatcher.register(CommandManager.literal("customplayer")
                 .requires(source -> true)
-                .then(CommandManager.argument("name", StringArgumentType.string())
-                        .then(CommandManager.literal("join")
-                                .executes(context -> {
-                                    GenericHandler.join(context.getSource(), StringArgumentType.getString(context, "playername"));
-                                    return 1;
-                                })
-                        )
-                        .then(CommandManager.literal("start")
-                                .executes(context -> {
-                                    GenericHandler.start(context.getSource(), StringArgumentType.getString(context, "playername"));
-                                    return 1;
-                                })
+                .then(CommandManager.literal("player")
+                        .then(CommandManager.argument("playername", StringArgumentType.string())
+                                .then(CommandManager.literal("join")
+                                        .executes(context -> {
+                                            GenericHandler.join(context.getSource(), StringArgumentType.getString(context, "playername"));
+                                            return 1;
+                                        })
+                                )
+                                .then(CommandManager.literal("start")
+                                        .executes(context -> {
+                                            GenericHandler.start(context.getSource(), StringArgumentType.getString(context, "playername"));
+                                            return 1;
+                                        })
 
-                        )
-                        .then(CommandManager.literal("stop")
-                                .executes(context -> {
-                                    GenericHandler.stop(context.getSource(), StringArgumentType.getString(context, "playername"));
-                                    return 1;
-                                })
+                                )
+                                .then(CommandManager.literal("stop")
+                                        .executes(context -> {
+                                            GenericHandler.stop(context.getSource(), StringArgumentType.getString(context, "playername"));
+                                            return 1;
+                                        })
 
-                        )
-                        .then(CommandManager.literal("leave")
-                                .executes(context -> {
-                                    GenericHandler.leave(context.getSource(), StringArgumentType.getString(context, "playername"));
-                                    return 1;
-                                })
+                                )
+                                .then(CommandManager.literal("leave")
+                                        .executes(context -> {
+                                            GenericHandler.leave(context.getSource(), StringArgumentType.getString(context, "playername"));
+                                            return 1;
+                                        })
+                                )
                         )
                 )
                 .then(CommandManager.literal("afk")
-                        .then(CommandManager.argument("name", StringArgumentType.string())
+                        .then(CommandManager.argument("playername", StringArgumentType.string())
                                 .then(CommandManager.literal("join")
                                         .executes(context -> {
-                                            AfkHandler.join(context.getSource(), StringArgumentType.getString(context, "name"));
+                                            AfkHandler.join(context.getSource(), StringArgumentType.getString(context, "playername"));
                                             return 1;
                                         })
                                 )
                                 .then(CommandManager.literal("leave")
                                         .executes(context -> {
-                                            AfkHandler.leave(context.getSource(), StringArgumentType.getString(context, "name"));
+                                            AfkHandler.leave(context.getSource(), StringArgumentType.getString(context, "playername"));
                                             return 1;
                                         })
                                 )
@@ -59,24 +61,31 @@ public class CustomPlayersCommands {
                 .then(CommandManager.literal("help")
                         .executes(context -> {
                             ServerCommandSource source = context.getSource();
-                            source.sendFeedback(() -> Text.literal("""
+                            source.sendFeedback(() -> Text.literal(
+                                """
                                 [CustomPlayersMod]
                                 To configure custom players, edit the server config file:
-                                config/customplayersmod/commands.json
+                                config/customplayers.json
                                 
                                 Example:
                                 {
-                                  "CustomPlayer1": {
-                                    "join": ["spawn at 1500 100 1500"],
-                                    "start": ["sneak"],
-                                    "stop": ["stop"],
-                                    "leave": ["kill"]
-                                  }
+                                  "ExamplePlayer1": {
+                                    "join": ["at 1500 130 1500 facing 0 0 in the_nether"],
+                                    "start": ["sneak", "use continuous"]
+                                  },
+                                  "ExamplePlayer2": {
+                                    "join": ["in survival"],
+                                    "start": ["turn right"]
+                                  },
+                                  ...
                                 }
                                 
-                                These commands will be preceeded by "player {playername} " to prevent unwanted use.
-                                """), false);
-
+                                Join commands are preceeded by "player {playername} spawn "
+                                Start commands are preceeded by "player {playername} "
+                                Stop and leave commands are "player {playername} stop/kill"
+                                """
+                            ), false);
+                            return 1;
                         }))
         );
     }
