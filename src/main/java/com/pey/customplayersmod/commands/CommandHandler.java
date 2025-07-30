@@ -141,6 +141,8 @@ public class CommandHandler {
                 false
         );
 
+        PlayerStateManager.markStopped(playerName);
+
     }
 
     public static void joinAfk(ServerCommandSource source, String name) {
