@@ -1,4 +1,4 @@
-package com.pey.customplayersmod.loaders;
+package com.pey.customplayersmod.config;
 
 import com.google.common.reflect.TypeToken;
 import com.google.gson.Gson;
@@ -11,14 +11,14 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public class PlayerCommandsLoader {
-    private static Map<String, Map<String, List<String>>> config = Map.of(); // jugador → subcomando → acciones
+public class PlayerLoader {
+    private static Map<String, Map<String, List<String>>> config = Map.of();
 
     static {
         load();
     }
 
-    private static void load() {
+    public static void load() {
         try {
             var file = Paths.get("config", "customplayers.json").toFile();
             Gson gson = new Gson();
@@ -42,5 +42,9 @@ public class PlayerCommandsLoader {
             case "leave" -> List.of("player " + playerName + " kill");
             default -> null;
         };
+    }
+
+    public static Map<String, Map<String, List<String>>> getConfig() {
+        return config;
     }
 }

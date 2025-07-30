@@ -9,10 +9,8 @@ public class ExampleConfigCreator {
     public static void createExampleConfig() {
         File configFile = new File("config/customplayers.json");
 
-        // Crea la carpeta si no existe
         configFile.getParentFile().mkdirs();
 
-        // Crea el archivo solo si no existe
         if (!configFile.exists()) {
             try (FileWriter writer = new FileWriter(configFile)) {
                 writer.write(
