@@ -32,13 +32,12 @@ public class PlayerLoader {
 
     public static List<String> getCommands(String playerName, String subcommand) {
         List<String> commands = new ArrayList<>();
-        if (subcommand.equals("join") || subcommand.equals("start")) {
+        if (subcommand.equals("join") || subcommand.equals("start") || subcommand.equals("stop")) {
             commands = config.getOrDefault(playerName, Map.of()).getOrDefault(subcommand, List.of());
         }
         return switch (subcommand) {
             case "join" -> commands.stream().map(s -> "player " + playerName + " spawn " + s).collect(Collectors.toList());
-            case "start" -> commands.stream().map(s -> "player " + playerName + " " + s).collect(Collectors.toList());
-            case "stop" -> List.of("player " + playerName + " stop");
+            case "start", "stop" -> commands.stream().map(s -> "player " + playerName + " " + s).collect(Collectors.toList());
             case "leave" -> List.of("player " + playerName + " kill");
             default -> null;
         };

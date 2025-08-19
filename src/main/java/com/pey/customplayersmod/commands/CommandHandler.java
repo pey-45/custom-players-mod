@@ -122,6 +122,13 @@ public class CommandHandler {
 
         ServerPlayerEntity player = server.getPlayerManager().getPlayer(playerName);
 
+        /*
+        if (player != null && player.isAlive()) {
+            stop(source, playerName);
+            return;
+        }
+        */
+
         if (player == null || !player.isAlive()) {
             source.sendFeedback(() ->
                     Text.literal(playerName + " is not connected").styled(style -> style.withColor(Formatting.RED)), false);
