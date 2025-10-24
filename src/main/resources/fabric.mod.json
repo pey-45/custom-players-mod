@@ -17,13 +17,6 @@
       "com.pey.customplayersmod.CustomPlayersMod"
     ]
   },
-  "mixins": [
-    "custom-players-mod.mixins.json",
-    {
-      "config": "custom-players-mod.client.mixins.json",
-      "environment": "client"
-    }
-  ],
   "depends": {
     "fabricloader": ">=${loader_version}",
     "fabric": "*",

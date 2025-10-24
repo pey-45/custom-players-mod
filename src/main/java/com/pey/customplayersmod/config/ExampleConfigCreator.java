@@ -21,7 +21,7 @@ public class ExampleConfigCreator {
                                 "start": ["sneak", "use continuous"]
                             },
                             "ExamplePlayer2": {
-                                "join": ["in survival"]
+                                "join": ["in survival"],
                                 "start": ["turn right"]
                             }
                         }

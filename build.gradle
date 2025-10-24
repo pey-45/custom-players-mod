@@ -1,5 +1,5 @@
 plugins {
-    id 'fabric-loom' version '1.10-SNAPSHOT'
+    id 'fabric-loom' version '1.11-SNAPSHOT'
     id 'maven-publish'
 }
 
@@ -47,7 +47,7 @@ dependencies {
 
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
-    modImplementation files("libs/fabric-carpet-1.21.6-1.4.176+v250617.jar")
+    modImplementation files("libs/fabric-carpet-1.21.9-1.4.185+v250930.jar")
 }
 
 processResources {

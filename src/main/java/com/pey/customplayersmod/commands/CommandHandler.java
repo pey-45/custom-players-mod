@@ -170,10 +170,10 @@ public class CommandHandler {
                     assert sourceplayer != null;
                     server.getCommandManager().executeWithPrefix(server.getCommandSource(),
                             "player afk" + name + " spawn at " +
-                                    sourceplayer.getPos().getX() + " " +
-                                    sourceplayer.getPos().getY() + " " +
-                                    sourceplayer.getPos().getZ() + " facing 0 0 in " +
-                                    sourceplayer.getWorld().getRegistryKey().getValue().toString()
+                                    sourceplayer.getBlockPos().getX() + " " +
+                                    sourceplayer.getBlockPos().getY() + " " +
+                                    sourceplayer.getBlockPos().getZ() + " facing 0 0 in " +
+                                    sourceplayer.getEntityWorld().getRegistryKey().getValue().toString()
                     );
                 }
         );
